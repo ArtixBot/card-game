@@ -16,7 +16,7 @@ public abstract class AbstractCard {
     public string TEXT;             // Card description
     public string FLAVOR;           // Flavor text
 
-    public AbstractCard(string id = "NO_ID_PROVIDED", string name = "Default Card", int cost = 0, CardRarity rarity = 0, List<CardType> type = null, string text = "", string flavor = ""){
+    public AbstractCard(string id, string name, int cost, CardRarity rarity, List<CardType> type, string text = "", string flavor = ""){
         this.ID = id;
         this.NAME = name;
         this.COST = cost;

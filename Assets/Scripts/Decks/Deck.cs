@@ -23,6 +23,15 @@ public class Deck
         }
     }
 
+    // Add a card to the deck. If frontOfDeck is true, adds it to index 0, else adds it to the very back of the deck.
+    // public void AddCard(string cardID, bool frontOfDeck = false){
+    //     // if (frontOfDeck){
+    //     //     this.deck.Insert(0, card);
+    //     // } else {
+    //     //     this.deck.Add(card);
+    //     // }
+    // }
+
     // Returns deck size.
     public int GetSize(){
         return this.deck.Count;

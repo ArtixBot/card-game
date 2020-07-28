@@ -8,9 +8,9 @@ public abstract class AbstractCharacter : MonoBehaviour
 
     public int maxHP;
     public int curHP;
-    public int drawModifier;        // Affects how many cards are drawn once the turn is ended.
+    public int drawModifier = 0;        // Default: At end of turn, draw 5 + <drawModifier>.
 
-    private Deck battleDeck;        // The "permanent deck" of a character. At the start of combat, deep-copy the contents of this deck to drawPile, shuffle drawPile, then draw <X> cards from it.
+    public Deck battleDeck;        // The "permanent deck" of a character. At the start of combat, deep-copy the contents of this deck to drawPile, shuffle drawPile, then draw <X> cards from it.
     private Deck drawPile;
     private Deck discardPile;
 
