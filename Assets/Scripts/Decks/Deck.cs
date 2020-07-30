@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +9,7 @@ using UnityEngine;
 public class Deck
 {    
     // For reference, let index 0 be the topmost card.
-    public List<AbstractCard> deck;
+    public List<AbstractCard> deck = new List<AbstractCard>();
 
     // Shuffles the deck.
     public void Shuffle(){
@@ -23,21 +25,27 @@ public class Deck
         }
     }
 
-    // Add a card to the deck. If frontOfDeck is true, adds it to index 0, else adds it to the very back of the deck.
-    // public void AddCard(string cardID, bool frontOfDeck = false){
-    //     // if (frontOfDeck){
-    //     //     this.deck.Insert(0, card);
-    //     // } else {
-    //     //     this.deck.Add(card);
-    //     // }
-    // }
+    // Add a card to the back of the deck via string ID.
+    public void AddCard(string cardID){
+        Type cardClass = CardLibrary.Instance.Lookup(cardID);
+        if (cardClass == null){
+            return;
+        }
+        AbstractCard card = Activator.CreateInstance(cardClass) as AbstractCard;
+        this.deck.Add(card);
+    }
+
+    // Add a card to the back of the deck via reference. Example usage: When the user discards their hand, all non-retaining cards need to be put into the discard pile, which is classified as a deck.
+    public void AddCard(AbstractCard card){
+        this.deck.Add(card);
+    }
 
     // Returns deck size.
     public int GetSize(){
         return this.deck.Count;
     }
 
-    // Returns the top card of the deck. If NULL, then the deck's empty.
+    // Returns the top card of the deck. If null, then the deck's empty.
     public AbstractCard GetTopCard(){
         return this.deck[0];
     }
@@ -59,7 +67,7 @@ public class Deck
 
     // Returns the top <X> cards of the deck. If <X> exceeds decksize, only <decksize> cards are returned.
     public List<AbstractCard> GetTopXCards(int count){
-        return this.deck.Take(count).ToList();  // If we try to get top 20 cards or whatever, but current deck size is 4, then just 4 elements will be returned.
+        return this.deck.Take(count).ToList();  // If we try to get top 20 cards or whatever, but current deck size is 4, then just 4 elements will be returned. If nothing in the deck remains, the list returned is empty.
     }
 
     // Returns the number of cards which match the argument's ID.
