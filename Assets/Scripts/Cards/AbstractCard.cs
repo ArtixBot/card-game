@@ -26,5 +26,5 @@ public abstract class AbstractCard {
         this.FLAVOR = flavor;
     }
 
-    public void OnPlay(){}
+    public abstract void OnPlay();
 }

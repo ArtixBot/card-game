@@ -10,12 +10,12 @@ public class Pugilist : AbstractCharacter
         this.curHP = 80;
     }
 
-    void Start(){
-        // Card additions need to be in Start() since CardLibrary is initialized in Awake(), and decks are reliant on CardLibrary to add cards.
-        this.battleDeck.AddCard("PUGILIST_PUNCH");
-        this.battleDeck.AddCard("PUGILIST_PUNCH");
-        this.battleDeck.AddCard("PUGILIST_PUNCH");
-        this.battleDeck.AddCard("PUGILIST_RAPID_JAB");
-        this.battleDeck.AddCard("PUGILIST_RAPID_JAB");
+    public override void AddStarterDeck(){
+        //TODO: change from drawPile to battleDeck and implement deep-copy method
+        this.drawPile.AddCard("PUGILIST_PUNCH");
+        this.drawPile.AddCard("PUGILIST_PUNCH");
+        this.drawPile.AddCard("PUGILIST_PUNCH");
+        this.drawPile.AddCard("PUGILIST_RAPID_JAB");
+        this.drawPile.AddCard("PUGILIST_RAPID_JAB");
     }
 }

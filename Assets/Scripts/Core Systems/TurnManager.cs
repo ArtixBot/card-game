@@ -5,12 +5,26 @@ using UnityEngine;
 // Manage yo turns.
 public class TurnManager : MonoBehaviour
 {
-    public List<AbstractCharacter> turnList;
-    // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
+    public List<AbstractCharacter> turnList = new List<AbstractCharacter>();
+    public static TurnManager Instance = null;
+
+    void Awake(){
+        if (Instance == null){
+            Instance = this;
+        } else {
+            Debug.LogError("ERROR: Attempted to reinitialize singleton CardLibrary!");
+        }
+    }
+    
+    void Start()
+    {
+        // testing schnitzel
+        turnList.Add(new Pugilist());   
+        // AbstractCharacter pugilist = getCurrentCharacter();
+        // pugilist.AddStarterDeck();
+        // pugilist.Draw(5);
+        // pugilist.DebugListHand();
+    }
 
     // // Update is called once per frame
     // void Update()
@@ -18,7 +32,7 @@ public class TurnManager : MonoBehaviour
         
     // }
 
-    public AbstractCharacter getCurrentCharacter(){
+    public AbstractCharacter GetCurrentCharacter(){
         return this.turnList[0];
     }
 

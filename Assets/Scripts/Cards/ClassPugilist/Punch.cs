@@ -17,4 +17,8 @@ public class Punch : AbstractCard {
         new List<CardType>{CardType.ATTACK},    
         cardDesc
     ){}
+
+    public override void OnPlay(){
+
+    }
 }

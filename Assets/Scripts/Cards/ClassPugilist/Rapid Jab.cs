@@ -17,4 +17,8 @@ public class RapidJab : AbstractCard {
         new List<CardType>{CardType.ATTACK},    
         cardDesc
     ){}
+
+    public override void OnPlay(){
+
+    }
 }
