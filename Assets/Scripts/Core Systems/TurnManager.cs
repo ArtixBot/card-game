@@ -2,36 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Manage yo turns.
-public class TurnManager : MonoBehaviour
+// Manage yo turns. Singleton.
+public class TurnManager
 {
-    public List<AbstractCharacter> turnList = new List<AbstractCharacter>();
-    public static TurnManager Instance = null;
+    public static readonly TurnManager Instance = new TurnManager();
+    private List<AbstractCharacter> turnList = new List<AbstractCharacter>();
 
-    void Awake(){
-        if (Instance == null){
-            Instance = this;
-        } else {
-            Debug.LogError("ERROR: Attempted to reinitialize singleton CardLibrary!");
-        }
-    }
-    
-    void Start()
-    {
+    private TurnManager(){
         // testing schnitzel
         turnList.Add(new Pugilist());   
-        // AbstractCharacter pugilist = getCurrentCharacter();
-        // pugilist.AddStarterDeck();
-        // pugilist.Draw(5);
+        AbstractCharacter pugilist = GetCurrentCharacter();
+        pugilist.AddStarterDeck();
+        pugilist.Draw(5);
         // pugilist.DebugListHand();
     }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    public void AddToTurnList(AbstractCharacter character){
+        turnList.Add(character);
+    }
 
+    public void ClearTurnList(){
+        this.turnList.Clear();
+    }
+    
     public AbstractCharacter GetCurrentCharacter(){
         return this.turnList[0];
     }

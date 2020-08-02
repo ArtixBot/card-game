@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Punch : AbstractCard {
+public class RapidJab : AbstractCard {
 
-    public static string cardID = "PUGILIST_PUNCH";
-    private static string cardName = "Punch";    
-    private static string cardDesc = "Deal 4 damage";
-    private static int cost = 1;
+    public static string cardID = "PUGILIST_RAPID_JAB";
+    private static string cardName = "Rapid Jab";    
+    private static string cardDesc = "Deal 2 damage.";
+    private static int cost = 0;
 
-    public Punch() : base(
+    public RapidJab() : base(
         cardID,
         cardName,
         cost,

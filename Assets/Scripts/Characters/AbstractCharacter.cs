@@ -44,6 +44,10 @@ public abstract class AbstractCharacter
         return;
     }
 
+    public List<AbstractCard> GetHand(){
+        return this.hand;
+    }
+    
     public void DiscardHand(){
         // Backwards iteration lets us safely remove things from hand without messing up indices.
         for (int i = this.hand.Count - 1; i >= 0; i--){
@@ -53,6 +57,7 @@ public abstract class AbstractCharacter
         }
         return;
     }
+
 
     public void DebugListHand(){
         foreach(AbstractCard card in hand){

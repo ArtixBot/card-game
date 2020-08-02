@@ -8,6 +8,8 @@ public class Pugilist : AbstractCharacter
         this.NAME = "Pugilist";
         this.maxHP = 80;
         this.curHP = 80;
+        this.maxAP = 3;
+        this.curAP = 3;
     }
 
     public override void AddStarterDeck(){
