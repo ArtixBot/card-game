@@ -25,6 +25,11 @@ public class Deck
         }
     }
 
+    // Returns true if the deck is empty.
+    public bool IsEmpty(){
+        return this.deck.Count == 0;
+    }
+
     // Add a card to the back of the deck via string ID.
     public void AddCard(string cardID){
         Type cardClass = CardLibrary.Instance.Lookup(cardID);

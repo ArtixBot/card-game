@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public HandDisplay display;         // Test for now
 
     // Update is called once per frame
     void Update()
@@ -13,6 +14,10 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0)){
             Debug.Log("left-click released");
+        }
+        if (Input.GetKeyUp(KeyCode.E)){
+            TurnManager.Instance.NextCharacter();
+            display.DisplayHand();
         }
     }
 }

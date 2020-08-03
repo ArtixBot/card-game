@@ -13,12 +13,19 @@ public class TurnManager
         turnList.Add(new Pugilist());   
         AbstractCharacter pugilist = GetCurrentCharacter();
         pugilist.AddStarterDeck();
-        pugilist.Draw(5);
-        // pugilist.DebugListHand();
+        pugilist.AddCondition("EXPOSED", 3);
+        Debug.Log("Added Pugilist to TurnManager.");
     }
 
     public void AddToTurnList(AbstractCharacter character){
         turnList.Add(character);
+    }
+
+    public void NextCharacter(){
+        GetCurrentCharacter().EndTurn();        // Run end-of-turn function for current character.
+        turnList.Add(GetCurrentCharacter());    // Add current character to the back of the queue.
+        turnList.RemoveAt(0);                   // Remove them from the front (turn ended).
+        GetCurrentCharacter().StartTurn();      // Run start-of-turn function for new character.
     }
 
     public void ClearTurnList(){

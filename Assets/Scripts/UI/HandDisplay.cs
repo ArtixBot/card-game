@@ -9,21 +9,19 @@ public class HandDisplay : MonoBehaviour
 {
     public GameObject prefab;   // Value is manually set in the Inspector for improved performance instead of directly loading from Resources.Load();
 
-    void Start()
+    public void DisplayHand()
     {
-        // TODO: Move this OUT of Start()/Update() because we definitely do not want to be instantiating gameobjects per frame. Have this run from TurnManager system...?
+        foreach (Transform child in this.transform){
+            GameObject.Destroy(child.gameObject);           // Remove all old gameobjects.
+        }
+
         AbstractCharacter character = TurnManager.Instance.GetCurrentCharacter();
         List<AbstractCard> hand = character.GetHand();
 
         for (int i = 0; i < hand.Count; i++){
-            GameObject obj = Instantiate(prefab, new Vector3(i * 300.0F + 300, 300, 0), Quaternion.identity);
+            GameObject obj = Instantiate(prefab, new Vector3(i * 200.0F + 300, 300, 0), Quaternion.identity);
             obj.transform.SetParent(gameObject.transform);
             obj.GetComponent<CardTemplate>().LoadData(hand[i]);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
