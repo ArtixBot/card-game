@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Linq;
 using UnityEngine;
 
-// Essentailly same functionality as CardLibrary. Singleton.
+// Essentailly same functionality as CardLibrary (copy-paste OP). Singleton.
 public class ConditionLibrary
 {
     public static readonly ConditionLibrary Instance = new ConditionLibrary();
@@ -15,7 +15,7 @@ public class ConditionLibrary
         float startUp = Time.realtimeSinceStartup;
         Assembly assembly = typeof(AbstractCondition).Assembly;
 
-        // Use reflection to grab all of the subclasses of AbstractCard.
+        // Use reflection to grab all of the subclasses of AbstractCondition.
         // Definitely eats performance. But this *should* only be called once at the start of the game?
         Type[] conditionClasses = assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(AbstractCondition))).ToArray();
         foreach (Type condition in conditionClasses){

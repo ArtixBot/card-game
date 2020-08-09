@@ -13,8 +13,6 @@ public class TurnManager
         turnList.Add(new Pugilist());   
         AbstractCharacter pugilist = GetCurrentCharacter();
         pugilist.AddStarterDeck();
-        pugilist.AddCondition("EXPOSED", 3);
-        Debug.Log("Added Pugilist to TurnManager.");
     }
 
     public void AddToTurnList(AbstractCharacter character){

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Exposed : AbstractCondition
 {
-    public static string id = "EXPOSED";
+    public static string id = "STATUS_EXPOSED";
     private static string name = "Exposed";    
     private static string desc = "Defense gain from all sources is reduced by -50% for <X> turns. Reduces by 1 at the end of owner's turn.";
 
@@ -33,7 +33,7 @@ public class Exposed : AbstractCondition
         }
     }
 
-    public override void DeapplyEffects(){
+    public override void RemoveEffects(){
         this.recipient.defenseGainMul += 0.5f;
     }
 }

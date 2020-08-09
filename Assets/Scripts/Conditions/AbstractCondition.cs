@@ -22,11 +22,11 @@ public abstract class AbstractCondition
         this.stacks = stackCount;   // Initial stack count.
     }
 
-    public virtual void ApplyEffects(){}    // Run this whenever a new status is applied.
+    public virtual void ApplyEffects(){}            // Run this whenever a new status is applied. Example: When gaining Exposed, reduce Defense gain mod by 50%.
     public virtual void Recalculate(int stacks){}   // Run this whenever stacks are gained or lost. <stacks> should equal the amount of stacks gained/lost. See 'Wound.cs' for an example.
-    public virtual void StartTurn(){}
-    public virtual void EndTurn(){}       // Duration tick can be done in this method or in OnStartTurn().
-    public virtual void DeapplyEffects(){}  // Run this whenever a new status expires.
+    public virtual void StartTurn(){}               // Run this at start of user's turn. Example: At start of turn, lose actions equal to Stun stacks, then remove all stun.
+    public virtual void EndTurn(){}                 // Run this at end of user's turn. Example: At end of turn, remove 1 stack of Exposed. Duration tick can be done in this method or in OnStartTurn().
+    public virtual void RemoveEffects(){}           // Run this whenever a status expires. Example: When Exposed is remove, increase Defense gain mod by 50%.
 
     public bool IsBuff(){
         return this.TYPE == ConditionType.BUFF;

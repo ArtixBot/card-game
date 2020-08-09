@@ -6,6 +6,7 @@ public class Pugilist : AbstractCharacter
 {
     public Pugilist(){
         this.NAME = "Pugilist";
+        this.FACTION = FactionType.ALLY;
         this.maxHP = 80;
         this.curHP = 80;
         this.maxAP = 3;
@@ -17,6 +18,7 @@ public class Pugilist : AbstractCharacter
         this.drawPile.AddCard("PUGILIST_PUNCH");
         this.drawPile.AddCard("PUGILIST_PUNCH");
         this.drawPile.AddCard("PUGILIST_PUNCH");
+        this.drawPile.AddCard("PUGILIST_RAPID_JAB");
         this.drawPile.AddCard("PUGILIST_RAPID_JAB");
         this.drawPile.AddCard("PUGILIST_RAPID_JAB");
     }

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
+public enum FactionType {ALLY, ENEMY};
 public abstract class AbstractCharacter
 {
     public string NAME;     // Character name
-
+    public FactionType FACTION;
+    
     public int maxHP;
     public int curHP;
     public int def;
@@ -52,11 +54,6 @@ public abstract class AbstractCharacter
         }
         conditions.RemoveAll(item => item == null);     // Actually remove any conditions that marked themselves for removal.
         DiscardHand();
-    }
-
-    // Gain defense. You cannot gain a negative amount of defense (say if your Defense modifier was hugely negative for some reason...)
-    public void GainDefense(int value){
-        this.def += Math.Max(0, (int)Math.Round((value + this.defenseGainMod) * this.defenseGainMul));
     }
 
     public void Draw(int numOfCards){
@@ -114,7 +111,7 @@ public abstract class AbstractCharacter
     // Remove a condition from the user. This version is GENERALLY called from AbstractConditions once stacks reach 0 but may be invoked by certain cards that remove random debuffs.
     // Conditions that remove themselves via RemoveCondition() will be set to null instead of just removing themselves directly from here so that iteration isn't messed up after removing a condition.
     public void RemoveCondition(AbstractCondition cd){
-        cd.DeapplyEffects();
+        cd.RemoveEffects();
         for (int i = 0; i < this.conditions.Count; i++){
             if (this.conditions[i] == cd){
                 this.conditions[i] = null;

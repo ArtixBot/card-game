@@ -15,6 +15,7 @@ public abstract class AbstractCard {
     public List<CardType> TYPE;     // Card type (can have multiple types per card in very limited cases)
     public string TEXT;             // Card description
     public string FLAVOR;           // Flavor text
+    public bool isUpgraded = false;
 
     public AbstractCard(string id, string name, int cost, CardRarity rarity, List<CardType> type, string text = "", string flavor = ""){
         this.ID = id;
@@ -26,5 +27,6 @@ public abstract class AbstractCard {
         this.FLAVOR = flavor;
     }
 
-    public abstract void OnPlay();
+    public abstract void OnPlay(AbstractCharacter target);
+    public abstract void OnUpgrade();
 }

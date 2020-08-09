@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Wound : AbstractCondition
 {
-    public static string id = "WOUND";
+    public static string id = "STATUS_WOUND";
     private static string name = "Wound";    
-    private static string desc = "Defense gain from all sources is reduced by -50% for <X> turns. Reduces by 1 at the end of owner's turn.";
+    private static string desc = "Take <stacks> increased damage from enemy attacks. Remove 1 stack at the end of owner's turn.";
 
     public Wound() : base(
         id,
@@ -39,7 +39,7 @@ public class Wound : AbstractCondition
     }
 
     // Handle forceful removal of Wound condition. If Wound naturally decays to 0, this should do nothing, which is good.
-    public override void DeapplyEffects(){
+    public override void RemoveEffects(){
         int remainingWoundStacks = this.stacks;
         this.recipient.damageTakenMod -= remainingWoundStacks;
     }

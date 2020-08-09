@@ -1,0 +1,10 @@
+{
+    "PUGILIST_PUNCH": {
+        "NAME": "Punch",
+        "DESC": "Deal [D] damage."
+    },
+    "PUGILIST_RAPID_JAB": {
+        "NAME": "Rapid Jab",
+        "DESC": "Deal [D] damage."
+    }
+}
