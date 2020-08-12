@@ -27,6 +27,6 @@ public abstract class AbstractCard {
         this.FLAVOR = flavor;
     }
 
-    public abstract void OnPlay(AbstractCharacter target);
+    public abstract void Play(AbstractCharacter source, AbstractCharacter target);
     public abstract void OnUpgrade();
 }

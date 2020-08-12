@@ -1,33 +1,29 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RapidJab : AbstractCard {
+public class Breather : AbstractCard {
 
-    public static string cardID = "PUGILIST_RAPID_JAB";
+    public static string cardID = "PUGILIST_BREATHER";
     private static Dictionary<string, string> strings = LocalizationLibrary.Instance.GetCardStrings(cardID);
     private static string cardName = strings["NAME"];
     private static string cardDesc = strings["DESC"];
-    private static int cost = 0;
+    private static int cost = 1;
 
-    private int damage = 3;
-
-    public RapidJab() : base(
+    public Breather() : base(
         cardID,
         cardName,
         cost,
         CardRarity.STARTER,
-        new List<CardType>{CardType.ATTACK},    
+        new List<CardType>{CardType.SKILL},    
         cardDesc
     ){}
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
-        CombatManager.Instance.AddAction(new DamageTargetAction(source, target, damage));
     }
 
     public override void OnUpgrade(){
         this.isUpgraded = true;
         this.NAME = this.NAME + "+";
-        this.damage += 2;
     }
 }

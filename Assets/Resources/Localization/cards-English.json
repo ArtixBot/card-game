@@ -1,10 +1,14 @@
 {
     "PUGILIST_PUNCH": {
         "NAME": "Punch",
-        "DESC": "Deal [D] damage."
+        "DESC": "Deal [D] damage. [NL] Deal [D] damage."
     },
     "PUGILIST_RAPID_JAB": {
         "NAME": "Rapid Jab",
         "DESC": "Deal [D] damage."
+    },
+    "PUGILIST_BREATHER": {
+        "NAME": "Breather",
+        "DESC": "Draw cards equal to the number of cards played this turn (+1). [NL] ([N] cards played.)"
     }
 }

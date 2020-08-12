@@ -19,7 +19,7 @@ public class HandDisplay : MonoBehaviour
         List<AbstractCard> hand = character.GetHand();
 
         for (int i = 0; i < hand.Count; i++){
-            GameObject obj = Instantiate(prefab, new Vector3(i * 200.0F + 300, 300, 0), Quaternion.identity);
+            GameObject obj = Instantiate(prefab, new Vector3(i * 200.0F + 300, -transform.position.y / 2, 0), Quaternion.identity);
             obj.transform.SetParent(gameObject.transform);
             obj.GetComponent<CardTemplate>().LoadData(hand[i]);
         }

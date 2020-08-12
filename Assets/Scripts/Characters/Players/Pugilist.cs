@@ -21,5 +21,6 @@ public class Pugilist : AbstractCharacter
         this.drawPile.AddCard("PUGILIST_RAPID_JAB");
         this.drawPile.AddCard("PUGILIST_RAPID_JAB");
         this.drawPile.AddCard("PUGILIST_RAPID_JAB");
+        this.drawPile.AddCard("PUGILIST_BREATHER");
     }
 }

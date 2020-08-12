@@ -21,8 +21,8 @@ public class Punch : AbstractCard {
         cardDesc
     ){}
 
-    public override void OnPlay(AbstractCharacter target){
-        CombatManager.Instance.AddToQueue(new DamageTargetAction(TurnManager.Instance.GetCurrentCharacter(), target, damage));
+    public override void Play(AbstractCharacter source, AbstractCharacter target){
+        CombatManager.Instance.AddAction(new DamageTargetAction(source, target, damage));
     }
 
     public override void OnUpgrade(){

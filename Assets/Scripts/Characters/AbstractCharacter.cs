@@ -69,8 +69,15 @@ public abstract class AbstractCharacter
                 drawPile.Shuffle();
                 discardPile.deck.Clear();
             }
-            hand.Add(drawPile.PopTopCard());
-            i--;
+
+            // Actually add the card from the draw pile to your hand if it's not at max size, else it goes straight to discard.
+            AbstractCard drawnCard = drawPile.PopTopCard();
+            if (hand.Count < 10){
+                hand.Add(drawnCard);
+            } else {
+                discardPile.AddCard(drawnCard);
+            }
+            i--;        // Repeat process <numOfCards> times.
         }
         return;
     }

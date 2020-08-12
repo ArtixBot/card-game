@@ -6,8 +6,13 @@ public class CombatManager
 {
     public static readonly CombatManager Instance = new CombatManager();
     public List<Action> actionQueue;
+    public TurnManager turnManager = TurnManager.Instance;
 
-    public void AddToQueue(Action action){
+    public void StartCombat(){
+
+    }
+
+    public void AddAction(Action action){
         actionQueue.Add(action);
     }
 
