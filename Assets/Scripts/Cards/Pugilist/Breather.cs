@@ -20,10 +20,10 @@ public class Breather : AbstractCard {
     ){}
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
+        base.Play(source, target);
     }
 
-    public override void OnUpgrade(){
-        this.isUpgraded = true;
-        this.NAME = this.NAME + "+";
+    public override void Upgrade(){
+        base.Upgrade();
     }
 }

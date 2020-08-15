@@ -10,5 +10,9 @@
     "PUGILIST_BREATHER": {
         "NAME": "Breather",
         "DESC": "Draw cards equal to the number of cards played this turn (+1). [NL] ([N] cards played.)"
+    },
+    "MERCHANT_EXECUTE": {
+        "NAME": "Execute",
+        "DESC": "Deal [D] damage. Apply [W] Weak."
     }
 }

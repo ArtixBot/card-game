@@ -39,7 +39,7 @@ public abstract class AbstractCharacter
     public abstract void AddStarterDeck();      // Should be called at the start of character creation (for players) or at start of combat (for enemies.)
 
     public void StartTurn(){
-        Draw(5 + drawModifier);
+        CombatManager.Instance.AddAction(new GainActionsAction(this, this.maxAP));
         for (int i = 0; i < this.conditions.Count; i++){
             AbstractCondition condition = this.conditions[i];
             condition.StartTurn();
@@ -52,8 +52,10 @@ public abstract class AbstractCharacter
             AbstractCondition condition = this.conditions[i];
             condition.EndTurn();
         }
+        this.curAP = 0;
         conditions.RemoveAll(item => item == null);     // Actually remove any conditions that marked themselves for removal.
         DiscardHand();
+        Draw(5 + drawModifier);
     }
 
     public void Draw(int numOfCards){

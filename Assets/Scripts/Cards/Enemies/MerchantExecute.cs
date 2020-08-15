@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Punch : AbstractCard {
-
-    public static string cardID = "PUGILIST_PUNCH";
+public class MerchantExecute : AbstractCard
+{
+    public static string cardID = "MERCHANT_EXECUTE";
     private static Dictionary<string, string> strings = LocalizationLibrary.Instance.GetCardStrings(cardID);
     private static string cardName = strings["NAME"];
     private static string cardDesc = strings["DESC"];
-    private static int cost = 1;
+    private static int cost = 3;
 
-    private int damage = 5;
+    private int damage = 45;
+    private int weakStacks = 2;
 
-    public Punch() : base(
+    public MerchantExecute() : base(
         cardID,
         cardName,
         cost,
-        CardRarity.STARTER,
+        CardRarity.RARE,
         new List<CardType>{CardType.ATTACK},    
         cardDesc
     ){}
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
-        CombatManager.Instance.AddAction(new DamageTargetAction(source, target, damage));
+        CombatManager.Instance.AddAction(new DamageTargetAction(source, target, this.damage));
+        CombatManager.Instance.AddAction(new ApplyConditionAction(target, "STATUS_WEAK", this.weakStacks));
     }
 
     public override void Upgrade(){
         base.Upgrade();
-        this.damage += 3;
+        this.damage += 15;
+        this.weakStacks += 1;
     }
 }

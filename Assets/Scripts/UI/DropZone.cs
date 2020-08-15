@@ -9,8 +9,7 @@ public class DropZone : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData){
         AbstractCard card = eventData.pointerDrag.GetComponent<CardTemplate>().cardRef;
         if (card != null){
-            Debug.Log(card.NAME + " was dropped on " + gameObject.name);
-            // card.Play(TurnManager.Instance.GetCurrentCharacter(), gameObject.GetComponent<AbstractCharacter>());         // TODO: Add enemy which uses this?
+            card.Play(TurnManager.Instance.GetCurrentCharacter(), TurnManager.Instance.GetCurrentCharacter());         // TODO: Change second parameter -- the target -- to not only target the player (that's for testing)
         }
     }
 }

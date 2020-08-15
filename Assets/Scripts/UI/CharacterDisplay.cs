@@ -6,10 +6,13 @@ using TMPro;
 
 public class CharacterDisplay : MonoBehaviour
 {
+
     private TextMeshProUGUI[] textComponents;
     private TextMeshProUGUI displayAP;
     private TextMeshProUGUI displayHP;
     private TextMeshProUGUI displayName;
+    private TextMeshProUGUI displayConditions;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +28,26 @@ public class CharacterDisplay : MonoBehaviour
                 case "Name":
                     displayName = element;
                     break;
+                case "Conditions":
+                    displayConditions = element;
+                    break;
                 default:
                     break;
             }
         }
     }
 
-    // Update is called once per frame
+    // TODO: Obviously don't just spam update on this every single frame, that kills FPS.
     void Update()
     {
         AbstractCharacter character = TurnManager.Instance.GetCurrentCharacter();
         displayName.text = character.NAME;
         displayAP.text = "AP: " + character.curAP + " / " + character.maxAP;
         displayHP.text = "HP: " + character.curHP + " / " + character.maxHP;
+
+        displayConditions.text = "";
+        foreach(AbstractCondition cd in character.conditions){
+            displayConditions.text = displayConditions.text + cd.NAME + " (" + cd.stacks + ")\n"; 
+        }
     }
 }

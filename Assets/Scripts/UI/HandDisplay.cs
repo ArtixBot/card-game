@@ -9,6 +9,7 @@ public class HandDisplay : MonoBehaviour
 {
     public GameObject prefab;   // Value is manually set in the Inspector for improved performance instead of directly loading from Resources.Load();
 
+    // TODO: Currently *extremely* inefficient for testing purposes. Rewrite this.
     public void DisplayHand()
     {
         foreach (Transform child in this.transform){

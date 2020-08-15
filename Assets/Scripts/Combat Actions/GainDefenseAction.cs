@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GainDefenseAction : Action {
+public class GainDefenseAction : AbstractAction {
     public int defValue;
 
     public GainDefenseAction(AbstractCharacter self, int defValue){

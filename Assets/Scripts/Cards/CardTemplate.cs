@@ -59,12 +59,14 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         this.lr.enabled = true;
         this.lr.SetPosition(0, Camera.main.ScreenToWorldPoint(eventData.position) + camOffset);
         this.lr.SetPosition(1, Camera.main.ScreenToWorldPoint(eventData.position) + camOffset);
+        transform.SetAsLastSibling();
 
         transform.position += new Vector3(0, 100, 0);
     }
 
     public void OnDrag(PointerEventData eventData){
         this.lr.SetPosition(1, Camera.main.ScreenToWorldPoint(eventData.position) + camOffset);
+        transform.SetAsLastSibling();
     }
     
     public void OnEndDrag(PointerEventData eventData)
@@ -73,6 +75,7 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         this.lr.enabled = false;
 
         transform.position -= new Vector3(0, 100, 0);
+        transform.SetSiblingIndex(this.renderIndex);    
     }
 
 }

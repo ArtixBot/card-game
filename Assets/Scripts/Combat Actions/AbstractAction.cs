@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Action
+public abstract class AbstractAction
 {
     public AbstractCharacter source;
     public AbstractCharacter target;

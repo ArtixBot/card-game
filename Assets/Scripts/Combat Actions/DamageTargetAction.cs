@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageTargetAction : Action {
+public class DamageTargetAction : AbstractAction {
     public int damageValue;
 
     public DamageTargetAction(AbstractCharacter source, AbstractCharacter target, int damageValue){

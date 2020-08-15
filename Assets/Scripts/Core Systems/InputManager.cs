@@ -12,12 +12,16 @@ public class InputManager : MonoBehaviour
     //     pugilist.AddStarterDeck();
     // }
 
+    void Start(){
+        TurnManager.Instance.GetCurrentCharacter().StartTurn();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.E)){
             TurnManager.Instance.NextCharacter();
-            display.DisplayHand();
+            display.DisplayHand();              // TODO: After playing ANY card, re-render the hand? There *has* to be a better way of doing this.
         }
     }
 }

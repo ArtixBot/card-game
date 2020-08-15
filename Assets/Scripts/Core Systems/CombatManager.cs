@@ -5,21 +5,21 @@ using UnityEngine;
 public class CombatManager
 {
     public static readonly CombatManager Instance = new CombatManager();
-    public List<Action> actionQueue;
-    public TurnManager turnManager = TurnManager.Instance;
+    public List<AbstractAction> actionQueue = new List<AbstractAction>();
+    public TurnManager tm = TurnManager.Instance;
 
     public void StartCombat(){
-
     }
 
-    public void AddAction(Action action){
+    public void AddAction(AbstractAction action){
         actionQueue.Add(action);
+        this.Update();
     }
 
-    // public Update(){
-    //     if (actionQueue[0] != null){
-    //         actionQueue[0].Resolve();
-    //         actionQueue.RemoveAt(0);
-    //     }
-    // }
+    public void Update(){
+        while (actionQueue.Count > 0){
+            actionQueue[0].Resolve();
+            actionQueue.RemoveAt(0);
+        }
+    }
 }

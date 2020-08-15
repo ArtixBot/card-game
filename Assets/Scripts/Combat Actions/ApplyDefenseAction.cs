@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyDefenseAction : Action {
+public class ApplyDefenseAction : AbstractAction {
     public int defValue;
 
     public ApplyDefenseAction(AbstractCharacter source, AbstractCharacter target, int defValue){

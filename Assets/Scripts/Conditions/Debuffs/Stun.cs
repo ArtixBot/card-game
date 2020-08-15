@@ -23,7 +23,7 @@ public class Stun : AbstractCondition
     ){}
 
     public override void StartTurn(){
-        this.recipient.curAP -= this.stacks;
+        this.recipient.curAP = Mathf.Max(this.recipient.curAP - this.stacks, 0);    // Cannot reduce actions below 0.
         this.stacks = 0;
         this.recipient.RemoveCondition(this);
     }

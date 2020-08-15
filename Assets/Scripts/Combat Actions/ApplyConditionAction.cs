@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplyConditionAction : Action {
+public class ApplyConditionAction : AbstractAction {
     public string cID;
     public int stacks;
 

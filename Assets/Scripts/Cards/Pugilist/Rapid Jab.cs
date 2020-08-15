@@ -22,12 +22,12 @@ public class RapidJab : AbstractCard {
     ){}
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
+        base.Play(source, target);
         CombatManager.Instance.AddAction(new DamageTargetAction(source, target, damage));
     }
 
-    public override void OnUpgrade(){
-        this.isUpgraded = true;
-        this.NAME = this.NAME + "+";
+    public override void Upgrade(){
+        base.Upgrade();
         this.damage += 2;
     }
 }

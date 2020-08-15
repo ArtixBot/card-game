@@ -9,10 +9,15 @@ public class TurnManager
     private List<AbstractCharacter> turnList = new List<AbstractCharacter>();
 
     private TurnManager(){
-        // testing schnitzel
-        turnList.Add(new Pugilist());   
-        AbstractCharacter pugilist = GetCurrentCharacter();
-        pugilist.AddStarterDeck();
+        // Testing schnitzel
+        AbstractCharacter charA = new Pugilist();
+        AbstractCharacter charB = new Merchant();
+        charA.AddStarterDeck();
+        charB.AddStarterDeck();
+        this.AddToTurnList(charA);
+        this.AddToTurnList(charB);
+        charA.Draw(5 + charA.drawModifier);
+        charB.Draw(5 + charB.drawModifier);
     }
 
     public void AddToTurnList(AbstractCharacter character){

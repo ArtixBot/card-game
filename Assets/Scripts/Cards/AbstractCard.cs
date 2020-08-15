@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 // Note that CardType and CardRarity enums are defined outside so that any class can use them (hopefully?)
-public enum CardType {ATTACK, SKILL, POWER, ITEM};
+public enum CardType {ATTACK, SKILL, POWER, STATUS, ITEM};
 public enum CardRarity {STARTER = 0, COMMON = 1, UNCOMMON = 2, RARE = 3, UNIQUE = 4};
+public class InsufficientActionsException : Exception{
+    public InsufficientActionsException(string message) : base(message){}
+}
 
 public abstract class AbstractCard {
 
@@ -27,6 +31,16 @@ public abstract class AbstractCard {
         this.FLAVOR = flavor;
     }
 
-    public abstract void Play(AbstractCharacter source, AbstractCharacter target);
-    public abstract void OnUpgrade();
+    public virtual void Play(AbstractCharacter source, AbstractCharacter target){
+        if (source.curAP < this.COST){
+            Debug.LogWarning(source.NAME + " does not have enough actions remaining to play " + this.NAME);
+            throw new InsufficientActionsException(source.NAME + " does not have enough actions remaining to play " + this.NAME);
+        } else {
+            source.curAP -= this.COST;
+        }
+    }
+    public virtual void Upgrade(){
+        this.isUpgraded = true;
+        this.NAME = this.NAME + "+";
+    }
 }
