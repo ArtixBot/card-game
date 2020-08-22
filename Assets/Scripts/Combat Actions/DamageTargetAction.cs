@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Damage a target.
 public class DamageTargetAction : AbstractAction {
     public int damageValue;
 

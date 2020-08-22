@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.E)){
-            TurnManager.Instance.NextCharacter();
+            CombatManager.Instance.NextTurn();
             display.DisplayHand();              // TODO: After playing ANY card, re-render the hand? There *has* to be a better way of doing this.
         }
     }

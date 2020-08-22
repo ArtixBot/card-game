@@ -19,11 +19,5 @@ public class Merchant : AbstractCharacter
         this.drawPile.AddCard("MERCHANT_EXECUTE");
         this.drawPile.AddCard("MERCHANT_EXECUTE");
         this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
-        this.drawPile.AddCard("MERCHANT_EXECUTE");
     }
 }

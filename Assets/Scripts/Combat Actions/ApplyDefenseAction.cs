@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Apply defense to a target.
 public class ApplyDefenseAction : AbstractAction {
     public int defValue;
 

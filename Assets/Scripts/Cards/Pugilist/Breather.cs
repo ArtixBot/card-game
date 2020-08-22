@@ -10,6 +10,8 @@ public class Breather : AbstractCard {
     private static string cardDesc = strings["DESC"];
     private static int cost = 1;
 
+    private int draw_extra_card = 0;
+
     public Breather() : base(
         cardID,
         cardName,
@@ -21,9 +23,11 @@ public class Breather : AbstractCard {
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
+        CombatManager.Instance.AddAction(new DrawCardsAction(source, CombatManager.Instance.cardsPlayedThisTurn + draw_extra_card));
     }
 
     public override void Upgrade(){
         base.Upgrade();
+        this.draw_extra_card += 1;
     }
 }

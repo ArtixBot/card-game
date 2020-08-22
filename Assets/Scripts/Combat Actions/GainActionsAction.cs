@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Gain actions.
 public class GainActionsAction : AbstractAction {
     public int numActions;
 

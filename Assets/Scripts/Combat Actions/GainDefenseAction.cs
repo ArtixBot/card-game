@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Gain defense.
 public class GainDefenseAction : AbstractAction {
     public int defValue;
 

@@ -7,7 +7,11 @@ using TMPro;
 
 public class HandDisplay : MonoBehaviour
 {
-    public GameObject prefab;   // Value is manually set in the Inspector for improved performance instead of directly loading from Resources.Load();
+    public GameObject cardTemplate;
+
+    public void Awake(){
+        cardTemplate = Resources.Load("Prefabs/CardTemplate") as GameObject;
+    }
 
     // TODO: Currently *extremely* inefficient for testing purposes. Rewrite this.
     public void DisplayHand()
@@ -20,7 +24,7 @@ public class HandDisplay : MonoBehaviour
         List<AbstractCard> hand = character.GetHand();
 
         for (int i = 0; i < hand.Count; i++){
-            GameObject obj = Instantiate(prefab, new Vector3(i * 200.0F + 300, -transform.position.y / 2, 0), Quaternion.identity);
+            GameObject obj = Instantiate(cardTemplate, new Vector3((transform.position.x / 2) + 200.0f * i, -transform.position.y / 2, 0), Quaternion.identity);
             obj.transform.SetParent(gameObject.transform);
             obj.GetComponent<CardTemplate>().LoadData(hand[i]);
         }

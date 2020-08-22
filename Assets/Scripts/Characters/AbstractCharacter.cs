@@ -54,7 +54,7 @@ public abstract class AbstractCharacter
         }
         this.curAP = 0;
         conditions.RemoveAll(item => item == null);     // Actually remove any conditions that marked themselves for removal.
-        DiscardHand();
+        EndOfTurnDiscard();
         Draw(5 + drawModifier);
     }
 
@@ -84,12 +84,13 @@ public abstract class AbstractCharacter
         return;
     }
 
-    public void DiscardHand(){
+    public void EndOfTurnDiscard(){
         // Backwards iteration lets us safely remove things from hand without messing up indices.
         for (int i = this.hand.Count - 1; i >= 0; i--){
-            // TODO: Handle retain properties
-            this.discardPile.AddCard(this.hand[i]);  // Add the card to the discard pile first.
-            this.hand.RemoveAt(i);              // Then actually remove it from the hand.
+            if (!this.hand[i].ContainsTag(CardTag.PRESERVE)){     // Don't discard cards with the [PRESERVE] tag.
+                this.discardPile.AddCard(this.hand[i]);  // Add the card to the discard pile first.
+                this.hand.RemoveAt(i);              // Then actually remove it from the hand.
+            }
         }
         return;
     }
@@ -124,6 +125,7 @@ public abstract class AbstractCharacter
         for (int i = 0; i < this.conditions.Count; i++){
             if (this.conditions[i] == cd){
                 this.conditions[i] = null;
+                return;
             }
         }
     }
@@ -136,6 +138,12 @@ public abstract class AbstractCharacter
             }
         }
         return null;
+    }
+
+    // Handles the playing of cards from hand to the discard pile.
+    public void MoveFromHandToDiscard(AbstractCard card){
+        hand.Remove(card);          // TODO: This would just remove the first occurrence and not the card itself, no?
+        discardPile.AddCard(card);
     }
 
     public void DebugListHand(){
