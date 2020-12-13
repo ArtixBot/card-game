@@ -10,7 +10,7 @@ public class TurnManager
 
     private TurnManager(){
         // Testing schnitzel
-        AbstractCharacter charA = new Pugilist();
+        AbstractCharacter charA = new Tinker();
         AbstractCharacter charB = new Merchant();
         charA.AddStarterDeck();
         charB.AddStarterDeck();

@@ -5,7 +5,7 @@ using UnityEngine;
 
 // Note that CardType and CardRarity enums are defined outside so that any class can use them (hopefully?)
 public enum CardType {ATTACK, SKILL, POWER, STATUS, ITEM};
-public enum CardTag {INHERIT, PRESERVE}
+public enum CardTag {INHERIT, PRESERVE, PURGE};
 public enum CardRarity {STARTER = 0, COMMON = 1, UNCOMMON = 2, RARE = 3, UNIQUE = 4};
 public class InsufficientActionsException : Exception{
     public InsufficientActionsException(string message) : base(message){}
@@ -39,7 +39,11 @@ public abstract class AbstractCard {
             throw new InsufficientActionsException(source.NAME + " does not have enough actions remaining to play " + this.NAME);
         } else {
             source.curAP -= this.COST;
-            source.MoveFromHandToDiscard(this);
+            if (this.HasTag(CardTag.PURGE)){
+                source.hand.Remove(this);
+            } else {
+                source.MoveFromHandToDiscard(this);
+            }
         }
     }
 
@@ -48,7 +52,11 @@ public abstract class AbstractCard {
         this.NAME = this.NAME + "+";
     }
 
-    public bool ContainsTag(CardTag tag){
-        return tags.Contains(tag);
+    public bool HasType(CardType type){
+        return this.TYPE.Contains(type);
+    }
+
+    public bool HasTag(CardTag tag){
+        return this.tags.Contains(tag);
     }
 }

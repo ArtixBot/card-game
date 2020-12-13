@@ -18,6 +18,13 @@ public class LocalizationLibrary
     }
 
     public Dictionary<string, string> GetCardStrings(string ID){
-        return json[ID].ToObject<Dictionary<string, string>>();
+        try {
+            return json[ID].ToObject<Dictionary<string, string>>();
+        } catch {
+            Dictionary<string, string> notFound = new Dictionary<string, string>();
+            notFound.Add("NAME", "MISSING_NAME_ATTR");
+            notFound.Add("DESC", "MISSING_DESC_ATTR");
+            return notFound;
+        }
     }
 }

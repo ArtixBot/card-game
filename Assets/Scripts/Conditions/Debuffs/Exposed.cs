@@ -6,7 +6,7 @@ public class Exposed : AbstractCondition
 {
     public static string id = "STATUS_EXPOSED";
     private static string name = "Exposed";    
-    private static string desc = "Defense gain from all sources is reduced by -50% for <X> turns. Reduces by 1 at the end of owner's turn.";
+    private static string desc = "Defense gain from all sources is reduced by -50% for <X> turns.";
 
     public Exposed() : base(
         id,

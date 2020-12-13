@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using TMPro;
 
 // Interacts with Unity and the CardTemplate prefab. Specifically, loads a AbstractCard definition to determine what gets displayed on-screen for a card.
@@ -24,7 +25,6 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         this.cardRef = reference;
         this.renderIndex = transform.GetSiblingIndex();
         TextMeshProUGUI[] textComponents = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
-        
         foreach(TextMeshProUGUI element in textComponents){
             switch (element.gameObject.name){
                 case "CardTitle":
@@ -39,6 +39,34 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 default:
                     break;
             }
+        }
+        
+        Image cardBorder = this.transform.Find("CardBorder").gameObject.GetComponent<Image>();
+        switch (this.cardRef.RARITY){
+            case CardRarity.UNIQUE:
+                cardBorder.color = new Color32(160, 51, 255, 255);
+                break;
+            case CardRarity.RARE:
+                cardBorder.color = new Color32(255, 211, 79, 255);
+                break;
+            case CardRarity.UNCOMMON:
+                cardBorder.color = new Color32(66, 217, 255, 255);
+                break;
+            default:
+                cardBorder.color = Color.gray;
+                break;
+        }
+
+        Image cardBg = this.transform.Find("CardBG").gameObject.GetComponent<Image>();
+        switch (this.cardRef.TYPE[0]){
+            case CardType.ATTACK:
+                cardBg.color = new Color32(255, 170, 110, 255);
+                break;
+            case CardType.SKILL:
+                cardBg.color = new Color32(0, 153, 255, 255);
+                break;
+            default:
+                break;
         }
     }
 

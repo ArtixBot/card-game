@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RapidJab : AbstractCard {
+public class Takedown : AbstractCard {
 
-    public static string cardID = "PUGILIST_RAPID_JAB";
+    public static string cardID = "PUGILIST_TAKEDOWN";
     private static Dictionary<string, string> strings = LocalizationLibrary.Instance.GetCardStrings(cardID);
     private static string cardName = strings["NAME"];
     private static string cardDesc = strings["DESC"];
-    private static int cost = 0;
+    private static int cost = 2;
 
-    private int damage = 3;
+    private int damage = 15;
+    private int stacks = 2;
 
-    public RapidJab() : base(
+    public Takedown() : base(
         cardID,
         cardName,
         cost,
-        CardRarity.STARTER,
+        CardRarity.COMMON,
         new List<CardType>{CardType.ATTACK},    
         cardDesc
     ){}
@@ -24,10 +25,11 @@ public class RapidJab : AbstractCard {
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
         CombatManager.Instance.AddAction(new DamageTargetAction(source, target, damage));
+        CombatManager.Instance.AddAction(new FinisherAction(source, new ApplyConditionAction(target, "STATUS_EXPOSED", stacks), cost));
     }
 
     public override void Upgrade(){
         base.Upgrade();
-        this.damage += 2;
+        this.stacks += 1;
     }
 }

@@ -87,7 +87,7 @@ public abstract class AbstractCharacter
     public void EndOfTurnDiscard(){
         // Backwards iteration lets us safely remove things from hand without messing up indices.
         for (int i = this.hand.Count - 1; i >= 0; i--){
-            if (!this.hand[i].ContainsTag(CardTag.PRESERVE)){     // Don't discard cards with the [PRESERVE] tag.
+            if (!this.hand[i].HasTag(CardTag.PRESERVE)){     // Don't discard cards with the [PRESERVE] tag.
                 this.discardPile.AddCard(this.hand[i]);  // Add the card to the discard pile first.
                 this.hand.RemoveAt(i);              // Then actually remove it from the hand.
             }
@@ -138,6 +138,16 @@ public abstract class AbstractCharacter
             }
         }
         return null;
+    }
+
+    // Returns true if user has a condition, or false otherwise.
+    public bool HasCondition(string cID){
+        foreach (AbstractCondition condition in conditions){
+            if (condition.ID == cID){
+                return true;
+            }
+        }
+        return false;
     }
 
     // Handles the playing of cards from hand to the discard pile.

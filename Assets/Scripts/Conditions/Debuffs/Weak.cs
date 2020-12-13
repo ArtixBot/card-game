@@ -6,7 +6,7 @@ public class Weak : AbstractCondition
 {
     public static string id = "STATUS_WEAK";
     private static string name = "Weak";    
-    private static string desc = "Outgoing damage is reduced by -25% for <X> turns. Reduces by 1 at the end of owner's turn.";
+    private static string desc = "Outgoing damage is reduced by -25% for <X> turns.";
 
     public Weak() : base(
         id,
