@@ -29,6 +29,10 @@ public abstract class AbstractCharacter
     public int maxAP;   // action points
     public int curAP;
 
+    public bool canPlayAttacks = true;
+    public bool canPlaySkills = true;
+    public bool canPlayPowers = true;
+
     public Deck battleDeck = new Deck();        // The "permanent deck" of a character. At the start of combat, deep-copy the contents of this deck to drawPile, shuffle drawPile, then draw <X> cards from it.
 
     public List<AbstractCard> hand = new List<AbstractCard>();

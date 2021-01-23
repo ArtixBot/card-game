@@ -7,6 +7,10 @@ using UnityEngine;
 public enum CardType {ATTACK, SKILL, POWER, STATUS, ITEM};
 public enum CardTag {INHERIT, PRESERVE, PURGE};
 public enum CardRarity {STARTER = 0, COMMON = 1, UNCOMMON = 2, RARE = 3, UNIQUE = 4};
+
+public class ProhibitedActionException : Exception{
+    public ProhibitedActionException(string message) : base(message){}
+}
 public class InsufficientActionsException : Exception{
     public InsufficientActionsException(string message) : base(message){}
 }
@@ -35,6 +39,9 @@ public abstract class AbstractCard {
     }
 
     public virtual void Play(AbstractCharacter source, AbstractCharacter target){
+        if (this.HasType(CardType.ATTACK) && !source.canPlayAttacks || this.HasType(CardType.SKILL) && !source.canPlaySkills || this.HasType(CardType.POWER) && !source.canPlayPowers){
+            throw new ProhibitedActionException(source.NAME + " is not able to play this card.");
+        }
         if (source.curAP < this.COST){      // Check AP costs.
             throw new InsufficientActionsException(source.NAME + " does not have enough actions remaining to play " + this.NAME);
         } else {
