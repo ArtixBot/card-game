@@ -78,6 +78,7 @@ public abstract class AbstractCharacter
 
             // Actually add the card from the draw pile to your hand if it's not at max size, else it goes straight to discard.
             AbstractCard drawnCard = drawPile.PopTopCard();
+            drawnCard.OnDraw(this);     // Trigger on-draw modifier for the card, supplying the current character.
             if (hand.Count < 10){
                 hand.Add(drawnCard);
             } else {

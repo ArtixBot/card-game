@@ -16,5 +16,6 @@ public class Tinker : AbstractCharacter
         //TODO: change from drawPile to battleDeck and implement deep-copy method
         this.drawPile.AddCard("TINKER_ANCHOR_SLAM");
         this.drawPile.AddCard("TINKER_WEIGHTED_HAMMER");
+        this.drawPile.AddCard("TINKER_FLASH_OF_BRILLIANCE");
     }
 }

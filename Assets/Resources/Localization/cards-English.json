@@ -3,6 +3,10 @@
         "NAME": "Anchor Slam",
         "DESC": "Deal damage equal to [M] times this card's cost."
     },
+    "TINKER_FLASH_OF_BRILLIANCE": {
+        "NAME": "Flash of Brilliance",
+        "DESC": "When this card is drawn, gain [E] Eureka and Purge this."
+    },
     "TINKER_WEIGHTED_HAMMER": {
         "NAME": "Weighted Hammer",
         "DESC": "Deal [D] damage. [NL] Deals bonus damage equal to the combined cost of all cards in your hand."

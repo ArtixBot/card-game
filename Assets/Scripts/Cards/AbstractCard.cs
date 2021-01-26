@@ -38,6 +38,8 @@ public abstract class AbstractCard {
         this.FLAVOR = flavor;
     }
 
+    public virtual void OnDraw(AbstractCharacter source){}      // Called when card is drawn.
+
     public virtual void Play(AbstractCharacter source, AbstractCharacter target){
         if (this.HasType(CardType.ATTACK) && !source.canPlayAttacks || this.HasType(CardType.SKILL) && !source.canPlaySkills || this.HasType(CardType.POWER) && !source.canPlayPowers){
             throw new ProhibitedActionException(source.NAME + " is not able to play this card.");
