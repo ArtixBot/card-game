@@ -13,7 +13,7 @@ public class LocalizationLibrary
     private JObject json = null;
 
     private LocalizationLibrary(){
-        string filepath = "Assets/Resources/Localization/cards-" + this.language + ".json";
+        string filepath = Application.dataPath + "/Resources/Localization/cards-" + this.language + ".json";
         json = JObject.Parse(File.ReadAllText(@filepath));
     }
 
@@ -22,8 +22,8 @@ public class LocalizationLibrary
             return json[ID].ToObject<Dictionary<string, string>>();
         } catch {
             Dictionary<string, string> notFound = new Dictionary<string, string>();
-            notFound.Add("NAME", "MISSING_NAME_ATTR");
-            notFound.Add("DESC", "MISSING_DESC_ATTR");
+            notFound.Add("NAME", "Missing name: " + ID);
+            notFound.Add("DESC", "Missing desc: " + ID);
             return notFound;
         }
     }

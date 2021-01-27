@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// Can have things dropped on it.
 // This should be attached to player/enemy displays to recognize card targeting protocols.
 public class DropZone : MonoBehaviour, IDropHandler
 {

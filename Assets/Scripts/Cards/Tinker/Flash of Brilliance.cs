@@ -23,7 +23,9 @@ public class FlashOfBrilliance : AbstractCard {
 
     public override void OnDraw(AbstractCharacter source){
         base.OnDraw(source);
+        // TODO: Implement functionality
         Debug.Log("DREW CARD: " + FlashOfBrilliance.cardName);
+        CombatManager.Instance.AddAction(new ApplyConditionAction(source, "STATUS_EUREKA", eureka_gain));
     }
 
     // Unplayable card, so base play function is commented out
