@@ -13,7 +13,7 @@ public class DropZone : MonoBehaviour, IDropHandler
     public CombatManager cm;
     
     public void Start(){
-        display = GameObject.FindObjectOfType<HandDisplay>();
+        display = GameObject.Find("HandZone").GetComponent(typeof(HandDisplay)) as HandDisplay;
         cm = CombatManager.Instance;
     }
 
@@ -22,7 +22,7 @@ public class DropZone : MonoBehaviour, IDropHandler
         if (card != null){
             try {
                 cm.PlayCard(card, TurnManager.Instance.GetCurrentCharacter(), TurnManager.Instance.GetCurrentCharacter());
-                display.DisplayHand();
+                // display.DisplayHand();
             } catch (Exception ex) {
                 Debug.LogWarning("Failed to play card, reason: " + ex.Message);
             }

@@ -13,6 +13,8 @@ public class CharacterDisplay : MonoBehaviour
     private TextMeshProUGUI displayName;
     private TextMeshProUGUI displayConditions;
 
+    public AbstractCharacter reference;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,9 @@ public class CharacterDisplay : MonoBehaviour
     // TODO: Obviously don't just spam update on this every single frame, that kills FPS.
     void Update()
     {
-        AbstractCharacter character = TurnManager.Instance.GetCurrentCharacter();
+        // Use the RenderFighters reference if supplied, else just grab the current character. TODO: Eventually remove the current character grabbing, since that should never occur
+        AbstractCharacter character = (reference != null) ? reference : TurnManager.Instance.GetCurrentCharacter();
+
         displayName.text = character.NAME;
         displayAP.text = "AP: " + character.curAP + " / " + character.maxAP;
         displayHP.text = "HP: " + character.curHP + " / " + character.maxHP;

@@ -22,7 +22,7 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         this.lr.positionCount = 2;
         this.lr.useWorldSpace = true;
 
-        this.cardRef = reference;
+        this.cardRef = reference;   // Used by DropZone
         this.renderIndex = transform.GetSiblingIndex();
         TextMeshProUGUI[] textComponents = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
         foreach(TextMeshProUGUI element in textComponents){

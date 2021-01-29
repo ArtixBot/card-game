@@ -8,6 +8,9 @@ public enum CardType {ATTACK, SKILL, POWER, STATUS, ITEM};
 public enum CardTag {INHERIT, PRESERVE, PURGE};
 public enum CardRarity {STARTER = 0, COMMON = 1, UNCOMMON = 2, RARE = 3, UNIQUE = 4};
 
+public class UnplayableCardException : Exception{
+    public UnplayableCardException(string message) : base(message){}
+}
 public class ProhibitedActionException : Exception{
     public ProhibitedActionException(string message) : base(message){}
 }

@@ -7,7 +7,7 @@ using TMPro;
 
 public class HandDisplay : MonoBehaviour
 {
-    public GameObject cardTemplate;
+    private GameObject cardTemplate;
 
     public void Awake(){
         cardTemplate = Resources.Load("Prefabs/CardTemplate") as GameObject;

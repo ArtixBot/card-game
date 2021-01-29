@@ -42,4 +42,10 @@ public class TurnManager
     public List<AbstractCharacter> GetTurnList(){
         return this.turnList;
     }
+
+    public void DebugTurnList(){
+        foreach(var character in this.turnList){
+            Debug.Log(character.NAME);
+        }
+    }
 }
