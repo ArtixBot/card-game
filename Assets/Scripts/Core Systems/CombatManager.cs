@@ -40,7 +40,7 @@ public class CombatManager
     public bool PlayCard(AbstractCard card, AbstractCharacter source, AbstractCharacter target){
         if (card == null) return false;
         try {
-            card.Play(TurnManager.Instance.GetCurrentCharacter(), TurnManager.Instance.GetCurrentCharacter());         // TODO: Change second parameter -- the target -- to not only target the player (that's for testing)
+            card.Play(source, target);
             cardsPlayedThisTurn += 1;
             return true;
         } catch (Exception ex){
