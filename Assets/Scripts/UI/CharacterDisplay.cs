@@ -47,12 +47,13 @@ public class CharacterDisplay : MonoBehaviour
     // TODO: Obviously don't just spam update on this every single frame, that kills FPS.
     void Update()
     {
-        // Use the RenderFighters reference if supplied, else just grab the current character. TODO: Eventually remove the current character grabbing, since that should never occur
+        // Use the RenderFighters reference if supplied, else just grab the current character.
+        // TODO: Eventually remove the current character grabbing, since that should never occur.
         AbstractCharacter character = (reference != null) ? reference : TurnManager.Instance.GetCurrentCharacter();
 
         displayName.text = character.NAME;
         displayAP.text = "AP: " + character.curAP + " / " + character.maxAP;
-        HPText.text = character.curHP + " / " + character.maxHP;
+        HPText.text = character.curHP + "/" + character.maxHP;
 
         HPImage.fillAmount = (float) character.curHP / (float) character.maxHP;
 
