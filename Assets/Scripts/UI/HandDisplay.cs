@@ -10,7 +10,7 @@ public class HandDisplay : MonoBehaviour
     private GameObject cardTemplate;
 
     public void Awake(){
-        cardTemplate = Resources.Load("Prefabs/CardTemplate") as GameObject;
+        cardTemplate = Resources.Load<GameObject>("Prefabs/CardTemplate");
     }
 
     // TODO: Currently *extremely* inefficient for testing purposes. Rewrite this.

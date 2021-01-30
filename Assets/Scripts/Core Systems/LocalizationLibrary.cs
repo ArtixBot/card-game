@@ -13,8 +13,9 @@ public class LocalizationLibrary
     private JObject json = null;
 
     private LocalizationLibrary(){
-        string filepath = Application.dataPath + "/Resources/Localization/cards-" + this.language + ".json";
-        json = JObject.Parse(File.ReadAllText(@filepath));
+        string altPath = "Localization/cards-" + this.language;
+        TextAsset targetFile = Resources.Load<TextAsset>(altPath);
+        json = JObject.Parse(targetFile.ToString());
     }
 
     public Dictionary<string, string> GetCardStrings(string ID){

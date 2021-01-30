@@ -16,7 +16,7 @@ public class RenderFighters : MonoBehaviour
         charactersToRender = TurnManager.Instance.GetTurnList();
         allyZone = transform.Find("AllyZone").gameObject;
         enemyZone = transform.Find("EnemyZone").gameObject;
-        prefab =  Resources.Load("Prefabs/CharacterDisplay") as GameObject;
+        prefab =  Resources.Load<GameObject>("Prefabs/CharacterDisplay");
         this.Render();
     }
 
