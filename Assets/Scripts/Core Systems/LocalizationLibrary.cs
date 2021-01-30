@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -21,10 +22,11 @@ public class LocalizationLibrary
     public Dictionary<string, string> GetCardStrings(string ID){
         try {
             return json[ID].ToObject<Dictionary<string, string>>();
-        } catch {
+        } catch (Exception ex) {
             Dictionary<string, string> notFound = new Dictionary<string, string>();
             notFound.Add("NAME", "Missing name: " + ID);
             notFound.Add("DESC", "Missing desc: " + ID);
+            // Debug.LogError(ex.Message);      // Currently causes 4 errors when we start due to the test not rendering the four tinker cards at the start of the test (press E to resolve)
             return notFound;
         }
     }
