@@ -8,6 +8,7 @@ public class GainDefenseAction : AbstractAction {
 
     public GainDefenseAction(AbstractCharacter self, int defValue){
         this.source = self;
+        this.target = self;     // This still needs to be defined or the card breaks (missing object reference)
         int defGained = (int)Mathf.Round((defValue + target.defenseGainMod) * target.defenseGainMul);
         this.defValue = Mathf.Max(0, defGained);     // Defense gained cannot be below 0.
     }

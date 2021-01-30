@@ -6,13 +6,15 @@ using TMPro;
 
 public class CharacterDisplay : MonoBehaviour
 {
-    private Image HPImage; 
+    private Image HPImage;
+    private Image BlockImage;
 
     private TextMeshProUGUI[] textComponents;
     private TextMeshProUGUI displayAP;
     private TextMeshProUGUI HPText;
     private TextMeshProUGUI displayName;
     private TextMeshProUGUI displayConditions;
+    private TextMeshProUGUI BlockText;
 
     public AbstractCharacter reference;
 
@@ -20,6 +22,7 @@ public class CharacterDisplay : MonoBehaviour
     void Start()
     {
         HPImage = transform.Find("HP Bar").gameObject.transform.Find("HP Foreground").gameObject.GetComponent<Image>();
+        BlockImage = transform.Find("HP Bar").gameObject.transform.Find("Block Foreground").gameObject.GetComponent<Image>();
         // HPImage.type = Image.Type.Filled;            // Values are already set in inspector
         // HPImage.fillMethod = Image.FillMethod.Horizontal;
 
@@ -31,6 +34,9 @@ public class CharacterDisplay : MonoBehaviour
                     break;
                 case "HP Text":
                     HPText = element;
+                    break;
+                case "Block Text":
+                    BlockText = element;
                     break;
                 case "Name":
                     displayName = element;
@@ -56,6 +62,15 @@ public class CharacterDisplay : MonoBehaviour
         HPText.text = character.curHP + "/" + character.maxHP;
 
         HPImage.fillAmount = (float) character.curHP / (float) character.maxHP;
+
+        if (character.def > 0){
+            BlockImage.enabled = true;
+            BlockText.enabled = true;
+            BlockText.text = character.def.ToString();
+        } else{
+            BlockImage.enabled = false;
+            BlockText.enabled = false;
+        }
 
         displayConditions.text = "";
         foreach(AbstractCondition cd in character.conditions){

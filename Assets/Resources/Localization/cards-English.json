@@ -3,6 +3,10 @@
         "NAME": "Anchor Slam",
         "DESC": "Deal damage equal to [M] times this card's cost."
     },
+    "TINKER_BLOCK": {
+        "NAME": "Wrench Block",
+        "DESC": "Gain [B] Block."
+    },
     "TINKER_FLASH_OF_BRILLIANCE": {
         "NAME": "Flash of Brilliance",
         "DESC": "Unplayable.\nWhen this card is drawn, gain [E] Eureka and Purge this."

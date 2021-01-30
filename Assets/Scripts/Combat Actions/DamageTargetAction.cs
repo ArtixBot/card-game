@@ -30,8 +30,9 @@ public class DamageTargetAction : AbstractAction {
             this.target.curHP -= this.damageValue;
         } else {
             if (this.damageValue > this.target.def){
+                int damageToDeal = (this.damageValue - this.target.def);
                 this.target.def = 0;
-                this.target.curHP -= (this.damageValue - this.target.def);
+                this.target.curHP -= damageToDeal;
             } else {
                 this.target.def -= this.damageValue;
             }
