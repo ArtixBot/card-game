@@ -6,10 +6,11 @@ using TMPro;
 
 public class CharacterDisplay : MonoBehaviour
 {
+    private Image HPImage; 
 
     private TextMeshProUGUI[] textComponents;
     private TextMeshProUGUI displayAP;
-    private TextMeshProUGUI displayHP;
+    private TextMeshProUGUI HPText;
     private TextMeshProUGUI displayName;
     private TextMeshProUGUI displayConditions;
 
@@ -18,14 +19,18 @@ public class CharacterDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HPImage = transform.Find("HP Bar").gameObject.transform.Find("HP Foreground").gameObject.GetComponent<Image>();
+        // HPImage.type = Image.Type.Filled;            // Values are already set in inspector
+        // HPImage.fillMethod = Image.FillMethod.Horizontal;
+
         textComponents = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
         foreach(TextMeshProUGUI element in textComponents){
             switch (element.gameObject.name){
                 case "AP":
                     displayAP = element;
                     break;
-                case "HP":
-                    displayHP = element;
+                case "HP Text":
+                    HPText = element;
                     break;
                 case "Name":
                     displayName = element;
@@ -47,7 +52,9 @@ public class CharacterDisplay : MonoBehaviour
 
         displayName.text = character.NAME;
         displayAP.text = "AP: " + character.curAP + " / " + character.maxAP;
-        displayHP.text = "HP: " + character.curHP + " / " + character.maxHP;
+        HPText.text = character.curHP + " / " + character.maxHP;
+
+        HPImage.fillAmount = (float) character.curHP / (float) character.maxHP;
 
         displayConditions.text = "";
         foreach(AbstractCondition cd in character.conditions){

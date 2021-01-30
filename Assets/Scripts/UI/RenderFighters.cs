@@ -26,14 +26,13 @@ public class RenderFighters : MonoBehaviour
             if (character.FACTION == FactionType.ALLY){
                 Vector3 allyZoneCoords = new Vector3(allyZone.transform.position.x / 2, allyZone.transform.position.y / 2, 0);
                 render = Instantiate(prefab, allyZoneCoords, Quaternion.identity) as GameObject;
-                render.GetComponent<CharacterDisplay>().reference = character;
                 render.transform.SetParent(allyZone.transform);
             } else {
                 Vector3 enemyZoneCoords = new Vector3(enemyZone.transform.position.x / 2, enemyZone.transform.position.y / 2, 0);
                 render = Instantiate(prefab, enemyZoneCoords, Quaternion.identity) as GameObject;
-                render.GetComponent<CharacterDisplay>().reference = character;
                 render.transform.SetParent(enemyZone.transform);
             }
+            render.GetComponent<CharacterDisplay>().reference = character;
         }
         
     }

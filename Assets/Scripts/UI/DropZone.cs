@@ -22,7 +22,7 @@ public class DropZone : MonoBehaviour, IDropHandler
         if (card != null){
             try {
                 cm.PlayCard(card, TurnManager.Instance.GetCurrentCharacter(), TurnManager.Instance.GetCurrentCharacter());
-                // display.DisplayHand();
+                display.DisplayHand();
             } catch (Exception ex) {
                 Debug.LogWarning("Failed to play card, reason: " + ex.Message);
             }
