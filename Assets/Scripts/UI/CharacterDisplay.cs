@@ -6,6 +6,7 @@ using TMPro;
 
 public class CharacterDisplay : MonoBehaviour
 {
+    private Image HPImage_BG;
     private Image HPImage;
     private Image BlockImage;
 
@@ -21,6 +22,7 @@ public class CharacterDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HPImage_BG = transform.Find("HP Bar").gameObject.transform.Find("HP Background").gameObject.GetComponent<Image>();
         HPImage = transform.Find("HP Bar").gameObject.transform.Find("HP Foreground").gameObject.GetComponent<Image>();
         BlockImage = transform.Find("HP Bar").gameObject.transform.Find("Block Foreground").gameObject.GetComponent<Image>();
         // HPImage.type = Image.Type.Filled;            // Values are already set in inspector
@@ -64,10 +66,12 @@ public class CharacterDisplay : MonoBehaviour
         HPImage.fillAmount = (float) character.curHP / (float) character.maxHP;
 
         if (character.def > 0){
+            // HPImage_BG.color = new Color(255, 213, 0, 255);
             BlockImage.enabled = true;
             BlockText.enabled = true;
             BlockText.text = character.def.ToString();
         } else{
+            // HPImage_BG.color = new Color(0, 0, 0, 255);
             BlockImage.enabled = false;
             BlockText.enabled = false;
         }

@@ -18,6 +18,7 @@ public class FlashOfBrilliance : AbstractCard {
         cost,
         CardRarity.RARE,
         new List<CardType>{CardType.SKILL},    
+        "flash_of_brilliance",
         cardDesc
     ){}
 

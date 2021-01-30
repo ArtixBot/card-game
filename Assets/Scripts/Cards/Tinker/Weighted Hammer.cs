@@ -18,6 +18,7 @@ public class WeightedHammer : AbstractCard {
         cost,
         CardRarity.STARTER,
         new List<CardType>{CardType.ATTACK},    
+        "weighted_hammer",
         cardDesc
     ){}
 

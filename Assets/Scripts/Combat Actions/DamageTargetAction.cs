@@ -5,13 +5,12 @@ using UnityEngine;
 // Damage types. Piercing damage ignores block, while Static damage isn't affected by damage modifiers (positive or negative).
 public enum DamageType {NORMAL, PIERCING, STATIC};
 
-// Damage a target.
 public class DamageTargetAction : AbstractAction {
 
     public bool isPiercing = false;
     public int damageValue;
 
-    // Defaults to normal-type damage.
+    // Damage a target. Defaults to normal-type damage.
     public DamageTargetAction(AbstractCharacter source, AbstractCharacter target, int damageValue, DamageType damageType = DamageType.NORMAL){
         if (damageType == DamageType.NORMAL || damageType == DamageType.PIERCING){
             this.source = source;

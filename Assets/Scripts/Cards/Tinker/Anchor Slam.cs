@@ -18,6 +18,7 @@ public class AnchorSlam : AbstractCard {
         cost,
         CardRarity.STARTER,
         new List<CardType>{CardType.ATTACK},    
+        "anchor_slam",
         cardDesc
     ){}
 

@@ -10,6 +10,8 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     public AbstractCard cardRef;
 
+    public Image cardArt;
+
     // Display options
     public Transform parentToReturnTo;
     public LineRenderer lr;
@@ -18,6 +20,9 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     Vector3 camOffset = new Vector3(0, 0, 10);
 
     public void LoadData(AbstractCard reference){
+        this.cardArt = this.transform.Find("CardImage").gameObject.GetComponent<Image>();
+        this.cardArt.sprite = reference.IMAGE;
+
         this.lr = gameObject.AddComponent<LineRenderer>();
         this.lr.positionCount = 2;
         this.lr.useWorldSpace = true;

@@ -19,5 +19,9 @@
         "NAME": "Execute",
         "DESC": "Deal [D] damage. Apply [W] Weak.",
         "FLAVOR": "A quick -- and brutally painful -- death."
+    },
+    "WAYFARER_GAMBIT": {
+        "NAME": "Gambit",
+        "DESC": "Deal [X]-[Y] damage.\nPayout [P]: Lower the Payout threshold of 1 random card in your hand by 1 for this turn."
     }
 }
