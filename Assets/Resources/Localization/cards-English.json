@@ -13,7 +13,7 @@
     },
     "TINKER_WEIGHTED_HAMMER": {
         "NAME": "Weighted Hammer",
-        "DESC": "Deal [X] damage.\nDeals bonus damage equal to the combined cost of all cards in your hand."
+        "DESC": "Deal [X] damage.\nDeals bonus damage equal to the combined cost of all other cards in your hand."
     },
     "MERCHANT_EXECUTE": {
         "NAME": "Execute",
