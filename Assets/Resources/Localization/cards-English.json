@@ -1,23 +1,23 @@
 {
     "TINKER_ANCHOR_SLAM": {
         "NAME": "Anchor Slam",
-        "DESC": "Deal damage equal to [M] times this card's cost."
+        "DESC": "Deal damage equal to [X] times this card's cost."
     },
     "TINKER_BLOCK": {
         "NAME": "Wrench Block",
-        "DESC": "Gain [B] Block."
+        "DESC": "Gain [X] Block."
     },
     "TINKER_FLASH_OF_BRILLIANCE": {
         "NAME": "Flash of Brilliance",
-        "DESC": "Unplayable.\nWhen this card is drawn, gain [E] Eureka and Purge this."
+        "DESC": "Unplayable.\nWhen this card is drawn, gain [X] Eureka and Purge this."
     },
     "TINKER_WEIGHTED_HAMMER": {
         "NAME": "Weighted Hammer",
-        "DESC": "Deal [D] damage.\nDeals bonus damage equal to the combined cost of all cards in your hand."
+        "DESC": "Deal [X] damage.\nDeals bonus damage equal to the combined cost of all cards in your hand."
     },
     "MERCHANT_EXECUTE": {
         "NAME": "Execute",
-        "DESC": "Deal [D] damage. Apply [W] Weak.",
+        "DESC": "Deal [X] damage. Apply [W] Weak.",
         "FLAVOR": "A quick -- and brutally painful -- death."
     },
     "WAYFARER_GAMBIT": {

@@ -19,8 +19,9 @@ public class AnchorSlam : AbstractCard {
         CardRarity.STARTER,
         new List<CardType>{CardType.ATTACK},    
         "anchor_slam",
-        cardDesc
-    ){}
+        cardDesc){
+        this.TEXT_VALUES = new List<int>{mult};
+    }
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
@@ -30,5 +31,6 @@ public class AnchorSlam : AbstractCard {
     public override void Upgrade(){
         base.Upgrade();
         this.mult += 2;
+        this.TEXT_VALUES = new List<int>{mult};
     }
 }

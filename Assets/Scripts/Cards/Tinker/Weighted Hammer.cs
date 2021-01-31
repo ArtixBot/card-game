@@ -20,7 +20,9 @@ public class WeightedHammer : AbstractCard {
         new List<CardType>{CardType.ATTACK},    
         "weighted_hammer",
         cardDesc
-    ){}
+    ){
+        this.TEXT_VALUES = new List<int>{damage};
+    }
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
@@ -38,5 +40,6 @@ public class WeightedHammer : AbstractCard {
     public override void Upgrade(){
         base.Upgrade();
         this.damage += 5;
+        this.TEXT_VALUES = new List<int>{damage};
     }
 }

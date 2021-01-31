@@ -10,7 +10,7 @@ public class WrenchBlock : AbstractCard {
     private static string cardDesc = strings["DESC"];
     private static int cost = 1;
 
-    private int def_gain = 5;
+    private int defGain = 5;
 
     public WrenchBlock() : base(
         cardID,
@@ -20,15 +20,18 @@ public class WrenchBlock : AbstractCard {
         new List<CardType>{CardType.SKILL},    
         "wrench_block",
         cardDesc
-    ){}
+    ){
+        this.TEXT_VALUES = new List<int>{defGain};
+    }
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
-        CombatManager.Instance.AddAction(new GainDefenseAction(source, this.def_gain));
+        CombatManager.Instance.AddAction(new GainDefenseAction(source, this.defGain));
     }
 
     public override void Upgrade(){
         base.Upgrade();
-        this.def_gain += 3;
+        this.defGain += 3;
+        this.TEXT_VALUES = new List<int>{defGain};
     }
 }

@@ -18,9 +18,12 @@ public class MerchantExecute : AbstractCard
         cardName,
         cost,
         CardRarity.RARE,
-        new List<CardType>{CardType.ATTACK},    
+        new List<CardType>{CardType.ATTACK},
+        "execute",    
         cardDesc
-    ){}
+    ){
+        this.TEXT_VALUES = new List<int>{damage, weakStacks};
+    }
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
@@ -32,5 +35,6 @@ public class MerchantExecute : AbstractCard
         base.Upgrade();
         this.damage += 15;
         this.weakStacks += 1;
+        this.TEXT_VALUES = new List<int>{damage, weakStacks};
     }
 }

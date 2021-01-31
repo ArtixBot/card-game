@@ -20,7 +20,9 @@ public class FlashOfBrilliance : AbstractCard {
         new List<CardType>{CardType.SKILL},    
         "flash_of_brilliance",
         cardDesc
-    ){}
+    ){
+        this.TEXT_VALUES = new List<int>{eureka_gain};
+    }
 
     public override void OnDraw(AbstractCharacter source){
         base.OnDraw(source);
@@ -37,5 +39,6 @@ public class FlashOfBrilliance : AbstractCard {
     public override void Upgrade(){
         base.Upgrade();
         this.eureka_gain += 1;
+        this.TEXT_VALUES = new List<int>{eureka_gain};
     }
 }

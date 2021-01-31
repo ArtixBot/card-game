@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -40,6 +41,14 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                     break;
                 case "CardText":
                     element.text = cardRef.TEXT;
+                    MatchCollection matches = new Regex(@"\[[^\]]*\]").Matches(cardRef.TEXT);
+                    if (reference.TEXT_VALUES != null && reference.TEXT_VALUES.Count == matches.Count){
+                        // Replace all references of [] with their actual values as supplied by the card.
+                        for (int i = 0; i < matches.Count; i++){
+                            Match match = matches[i];
+                            element.text = element.text.Replace(match.Value, reference.TEXT_VALUES[i].ToString());
+                        }
+                    }
                     break;
                 default:
                     break;

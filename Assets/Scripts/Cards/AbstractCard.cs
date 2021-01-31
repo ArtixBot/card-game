@@ -27,25 +27,22 @@ public abstract class AbstractCard {
     public CardRarity RARITY;       // Card rarity
     public List<CardType> TYPE;     // Card type (can have multiple types per card in very limited cases)
     public string TEXT;             // Card description
+    public List<int> TEXT_VALUES;   // Replaces [X] formatting from card description with the actual values to use.
     public string FLAVOR;           // Flavor text
-
     
     public List<CardTag> tags = new List<CardTag>();     // Any tags the card may have
     public bool isUpgraded = false;
 
-    public AbstractCard(string id, string name, int cost, CardRarity rarity, List<CardType> type, string image_name = "", string text = "", string flavor = ""){
+    public AbstractCard(string id, string cardName, int cost, CardRarity rarity, List<CardType> type, string imageName, string cardText, List<int> textValues = null, string cardFlavor = ""){
         this.ID = id;
-        this.NAME = name;
+        this.NAME = cardName;
         this.COST = cost;
         this.RARITY = rarity;
         this.TYPE = type;
-        this.TEXT = text;
-        this.FLAVOR = flavor;
-
-        if (image_name != ""){
-            string path = "Images/Card Art/" + image_name;
-            this.IMAGE = Resources.Load<Sprite>(path);
-        } 
+        this.IMAGE = Resources.Load<Sprite>((string)"Images/Card Art/" + imageName);
+        this.TEXT = cardText;
+        this.TEXT_VALUES = textValues;
+        this.FLAVOR = cardFlavor;
     }
 
     public virtual void OnDraw(AbstractCharacter source){}      // Called when card is drawn.

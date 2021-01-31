@@ -13,14 +13,19 @@ public class Gambit : AbstractCard
     private int minDamage = 6;
     private int bonusDamage = 2;
 
+    private int threshold = 8;
+
     public Gambit() : base(
         cardID,
         cardName,
         cost,
         CardRarity.STARTER,
-        new List<CardType>{CardType.ATTACK},    
+        new List<CardType>{CardType.ATTACK},
+        "gambit",    
         cardDesc
-    ){}
+    ){
+        this.TEXT_VALUES = new List<int>{minDamage, minDamage+bonusDamage, threshold};
+    }
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
@@ -31,5 +36,6 @@ public class Gambit : AbstractCard
     public override void Upgrade(){
         base.Upgrade();
         this.bonusDamage += 2;
+        this.TEXT_VALUES = new List<int>{minDamage, minDamage+bonusDamage, threshold};
     }
 }
