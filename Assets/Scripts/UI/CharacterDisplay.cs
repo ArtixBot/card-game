@@ -11,7 +11,6 @@ public class CharacterDisplay : MonoBehaviour
     private Image BlockImage;
 
     private TextMeshProUGUI[] textComponents;
-    private TextMeshProUGUI displayAP;
     private TextMeshProUGUI HPText;
     private TextMeshProUGUI displayName;
     private TextMeshProUGUI displayConditions;
@@ -31,9 +30,6 @@ public class CharacterDisplay : MonoBehaviour
         textComponents = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
         foreach(TextMeshProUGUI element in textComponents){
             switch (element.gameObject.name){
-                case "AP":
-                    displayAP = element;
-                    break;
                 case "HP Text":
                     HPText = element;
                     break;
@@ -60,7 +56,6 @@ public class CharacterDisplay : MonoBehaviour
         AbstractCharacter character = (reference != null) ? reference : TurnManager.Instance.GetCurrentCharacter();
 
         displayName.text = character.NAME;
-        displayAP.text = "AP: " + character.curAP + " / " + character.maxAP;
         HPText.text = character.curHP + "/" + character.maxHP;
 
         HPImage.fillAmount = (float) character.curHP / (float) character.maxHP;

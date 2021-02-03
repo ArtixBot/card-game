@@ -18,5 +18,12 @@ public class Tinker : AbstractCharacter
         this.drawPile.AddCard("TINKER_WEIGHTED_HAMMER");
         this.drawPile.AddCard("TINKER_FLASH_OF_BRILLIANCE");
         this.drawPile.AddCard("TINKER_BLOCK");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
+        this.drawPile.AddCard("TINKER_DEFECTIVE_IMPROVEMENTS");
     }
 }

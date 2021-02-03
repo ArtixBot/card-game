@@ -20,6 +20,7 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     Vector3 camOffset = new Vector3(0, 0, 10);
 
+
     public void LoadData(AbstractCard reference){
         this.cardArt = this.transform.Find("CardImage").gameObject.GetComponent<Image>();
         this.cardArt.sprite = reference.IMAGE;
@@ -71,13 +72,13 @@ public class CardTemplate : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 break;
         }
 
-        Image cardBg = this.transform.Find("CardBG").gameObject.GetComponent<Image>();
+        Image cardBg = this.transform.Find("CardBack").gameObject.GetComponent<Image>();
         switch (this.cardRef.TYPE[0]){
             case CardType.ATTACK:
-                cardBg.color = new Color32(255, 170, 110, 255);
+                cardBg.color = new Color32(255, 210, 120, 255);
                 break;
             case CardType.SKILL:
-                cardBg.color = new Color32(0, 153, 255, 255);
+                cardBg.color = new Color32(120, 165, 255, 255);
                 break;
             default:
                 break;

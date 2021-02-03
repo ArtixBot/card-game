@@ -163,6 +163,14 @@ public abstract class AbstractCharacter
         discardPile.AddCard(card);
     }
 
+    public Deck GetDrawPile(){
+        return this.drawPile;
+    }
+
+    public Deck GetDiscardPile(){
+        return this.discardPile;
+    }
+
     public void DebugListHand(){
         foreach(AbstractCard card in hand){
             Debug.Log(card.NAME + " " + card.TYPE[0] + " " + card.TEXT);

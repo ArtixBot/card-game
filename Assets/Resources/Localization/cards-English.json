@@ -7,6 +7,10 @@
         "NAME": "Wrench Block",
         "DESC": "Gain [X] Block."
     },
+    "TINKER_DEFECTIVE_IMPROVEMENTS": {
+        "NAME": "\"Improvements\"",
+        "DESC": "Choose a card in hand and increase its cost by [X] for the rest of combat."
+    },
     "TINKER_FLASH_OF_BRILLIANCE": {
         "NAME": "Flash of Brilliance",
         "DESC": "Unplayable.\nWhen this card is drawn, gain [X] Eureka and Purge this."

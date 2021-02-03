@@ -24,11 +24,11 @@ public class RenderFighters : MonoBehaviour
         foreach(AbstractCharacter character in charactersToRender){
             GameObject render;
             if (character.FACTION == FactionType.ALLY){
-                Vector3 allyZoneCoords = new Vector3(allyZone.transform.position.x + 500, allyZone.transform.position.y, 0);
+                Vector3 allyZoneCoords = new Vector3(allyZone.transform.position.x + 500, allyZone.transform.position.y + 100, 0);
                 render = Instantiate(prefab, allyZoneCoords, Quaternion.identity) as GameObject;
                 render.transform.SetParent(allyZone.transform);
             } else {
-                Vector3 enemyZoneCoords = new Vector3(enemyZone.transform.position.x / 2, enemyZone.transform.position.y, 0);
+                Vector3 enemyZoneCoords = new Vector3(enemyZone.transform.position.x - 500, enemyZone.transform.position.y + 100, 0);
                 render = Instantiate(prefab, enemyZoneCoords, Quaternion.identity) as GameObject;
                 render.transform.SetParent(enemyZone.transform);
             }

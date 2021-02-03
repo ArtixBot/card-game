@@ -33,7 +33,7 @@ public class FlashOfBrilliance : AbstractCard {
     // Unplayable card, so base play function is commented out
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         // base.Play(source, target);
-        throw new UnplayableCardException("Flash of Brilliance is unplayable.");
+        throw new ProhibitedActionException("Flash of Brilliance is unplayable.");
     }
 
     public override void Upgrade(){
