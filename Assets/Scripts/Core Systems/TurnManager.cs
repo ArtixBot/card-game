@@ -11,20 +11,20 @@ public class TurnManager
     private TurnManager(){
         // Testing schnitzel
         AbstractCharacter charA = new Tinker();
-        AbstractCharacter charB = new Wayfarer();
+        // AbstractCharacter charB = new Wayfarer();
         AbstractCharacter charC = new Merchant();
         charA.AddStarterDeck();
-        charB.AddStarterDeck();
+        // charB.AddStarterDeck();
         charC.AddStarterDeck();
         this.AddToTurnList(charA);
-        this.AddToTurnList(charB);
+        // this.AddToTurnList(charB);
         this.AddToTurnList(charC);
         charA.Draw(5 + charA.drawModifier);
-        charB.Draw(5 + charB.drawModifier);
+        // charB.Draw(5 + charB.drawModifier);
         charC.Draw(5 + charC.drawModifier);
 
         charA.curAP = charA.maxAP;
-        charB.curAP = charB.maxAP;
+        // charB.curAP = charB.maxAP;
         charC.curAP = charC.maxAP;
     }
 

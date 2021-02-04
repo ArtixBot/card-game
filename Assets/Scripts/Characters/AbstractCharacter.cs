@@ -14,7 +14,7 @@ public abstract class AbstractCharacter
     public int curHP;
     public int def;
     
-    public int drawModifier = 0;        // Default: At end of turn, draw 5 + <drawModifier>.
+    public int drawModifier = 5;        // Default: At end of turn, draw 5 + <drawModifier>.
     
     // Damage formula: ((CardAttackDamage + self.damageMod) * self.damageMul) + target.damageTakenMod) * target.damageTakenMul
     public float damageDealtMul = 1.0f;     // Multiplicative modifier for damage dealt.

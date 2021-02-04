@@ -20,8 +20,7 @@ public class CurrentCharacter : MonoBehaviour
         charName = transform.Find("CharName").GetComponent<TextMeshProUGUI>();
     }
 
-    // TODO: Stop relying on the Update() loop for this! It should only update when ending turns or when a card is played.
-    void Update(){
+    public void Render(){
         current = TurnManager.Instance.GetTurnList()[0];
         drawPileCards.text = current.GetDrawPile().GetSize().ToString();
         discardPileCards.text = current.GetDiscardPile().GetSize().ToString();

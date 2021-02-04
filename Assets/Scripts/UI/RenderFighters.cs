@@ -20,7 +20,7 @@ public class RenderFighters : MonoBehaviour
         this.Render();
     }
 
-    void Render(){
+    public void Render(){
         foreach(AbstractCharacter character in charactersToRender){
             GameObject render;
             if (character.FACTION == FactionType.ALLY){

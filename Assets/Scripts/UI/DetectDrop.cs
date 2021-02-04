@@ -28,7 +28,7 @@ public class DetectDrop : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         if (card != null){
             try {
                 CombatManager.Instance.PlayCard(card, TurnManager.Instance.GetCurrentCharacter(), unitRef);
-                handDisplay.GetComponent<HandDisplay>().DisplayHand();   
+                handDisplay.GetComponent<HandDisplay>().DisplayHand();
             } catch (Exception ex) {
                 Debug.LogWarning("Failed to play card, reason: " + ex.Message);
             }
