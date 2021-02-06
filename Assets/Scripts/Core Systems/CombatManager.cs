@@ -48,4 +48,9 @@ public class CombatManager
             return false;
         }
     }
+
+    public List<AbstractCard> SelectCardsFromOverlay(List<AbstractCard> cardsToDisplay){
+        List<AbstractCard> selectedCards = UICombatManager.Instance.DisplayCardSelectionOverlay(cardsToDisplay);
+        return selectedCards;
+    }
 }

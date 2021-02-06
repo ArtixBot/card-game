@@ -6,21 +6,22 @@ public class PopulateGridLayout : MonoBehaviour
 {
     private GameObject cardTemplate;
 
-    void Start(){
-        cardTemplate = Resources.Load<GameObject>("Prefabs/CardTemplate");
-    }
+    public List<AbstractCard> cardsToDisplay;
 
-    void OnEnable(){
-        List<AbstractCard> cardsToDisplay = TurnManager.Instance.GetCurrentCharacter().GetHand();
-        foreach (AbstractCard card in cardsToDisplay){
-            GameObject obj = Instantiate(cardTemplate, transform);
-            obj.GetComponent<CardTemplate>().LoadData(card);
-        }
+    void Awake(){
+        cardTemplate = Resources.Load<GameObject>("Prefabs/CardTemplate");
     }
 
     void OnDisable(){
         foreach (Transform child in transform){
             GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    public void Render(List<AbstractCard> cardsToDisplay){
+        foreach (AbstractCard card in cardsToDisplay){
+            GameObject obj = Instantiate(cardTemplate, transform);
+            obj.GetComponent<CardTemplate>().LoadData(card);
         }
     }
 }

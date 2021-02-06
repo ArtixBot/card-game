@@ -10,7 +10,7 @@ public class RenderFighters : MonoBehaviour
 
     public List<AbstractCharacter> charactersToRender;
     public GameObject prefab;
-    
+
     void Start()
     {
         charactersToRender = TurnManager.Instance.GetTurnList();

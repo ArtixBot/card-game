@@ -5,15 +5,13 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
 
-    public GameObject testCardSelectionOverlay;
     public HandDisplay display;         // Test for now
 
     void Start(){
         TurnManager.Instance.GetCurrentCharacter().StartTurn();
 
         // TESTING
-        testCardSelectionOverlay = GameObject.Find("CombatUI/OverlayChooseCards");      // Causes a NullReferenceException, but when fully implemented this won't happen anymore.
-        testCardSelectionOverlay.SetActive(false);
+        GameObject.Find("CombatUI/OverlayChooseCards").SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,7 +22,7 @@ public class InputManager : MonoBehaviour
             display.DisplayHand();              // TODO: After playing ANY card, re-render the hand? There *has* to be a better way of doing this.
         }
         if (Input.GetKeyUp(KeyCode.Q)){
-            testCardSelectionOverlay.SetActive(!testCardSelectionOverlay.activeSelf);
+            GameObject.Find("CombatUI/OverlayChooseCards").SetActive(false);
         }
     }
 }

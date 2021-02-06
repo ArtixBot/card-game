@@ -15,16 +15,19 @@ public class ProhibitedActionException : Exception{
 
 public abstract class AbstractCard {
 
+    // Gameplay
     public string ID;               // Card ID
-    public string NAME;             // Card name
-    public Sprite IMAGE;            // Card image path
     public int COST;                // Card cost
     public int CARD_ID;             // Card numerical ID (to handle differentiation of duplicate cards in a deck)
-    public CardRarity RARITY;       // Card rarity
     public List<CardType> TYPE;     // Card type (can have multiple types per card in very limited cases)
+    public CardRarity RARITY;       // Card rarity
+    public CardTarget TARGETING;    // Card targeting (affects where the card can be dropped to play the card)
+
+    // Cosmetic
+    public string NAME;             // Card name
+    public Sprite IMAGE;            // Card image path
     public string TEXT;             // Card description
     public List<int> TEXT_VALUES;   // Replaces [X] formatting from card description with the actual values to use.
-    public CardTarget TARGETING;    // Card targeting (affects where the card can be dropped to play the card)
     public string FLAVOR;           // Flavor text
     
     public List<CardTag> tags = new List<CardTag>();     // Any tags the card may have

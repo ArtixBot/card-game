@@ -1,4 +1,4 @@
 - Fix start of combat system - correctly dispense the right amount of cards and actions to each player
-- Fix UI for combat participants
+- Fix UI positioning for combat participants
 - Add battledeck and deep-copy cards from the battledeck to the combat deck to preserve player deck between combat
 - Improve card text parameterization
