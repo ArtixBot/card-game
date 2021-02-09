@@ -49,8 +49,12 @@ public class CombatManager
         }
     }
 
-    public List<AbstractCard> SelectCardsFromOverlay(List<AbstractCard> cardsToDisplay){
-        List<AbstractCard> selectedCards = UICombatManager.Instance.DisplayCardSelectionOverlay(cardsToDisplay);
+    public List<AbstractCard> SelectCardsFromList(List<AbstractCard> cardsToDisplay, int numToSelect, bool mustSelectExact){
+        if (cardsToDisplay.Count == 0){
+            Debug.Log("No cards are available to select from!");
+            return null;
+        }
+        List<AbstractCard> selectedCards = UICombatManager.Instance.DisplayCardSelectionOverlay(cardsToDisplay, numToSelect, mustSelectExact);
         return selectedCards;
     }
 }

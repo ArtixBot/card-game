@@ -18,16 +18,17 @@ public class UICombatManager : MonoBehaviour
         cardSelectionOverlay = transform.Find("OverlayChooseCards").gameObject;
     }
 
-    public List<AbstractCard> DisplayCardSelectionOverlay(List<AbstractCard> cardsToDisplay){
-        StartCoroutine(Test(cardsToDisplay));
+    public List<AbstractCard> DisplayCardSelectionOverlay(List<AbstractCard> cardsToDisplay, int numToSelect, bool mustSelectExact){
+        StartCoroutine(Test(cardsToDisplay, numToSelect, mustSelectExact));
         return null;            // TODO: Fix this
     }
 
-    IEnumerator Test(List<AbstractCard> cardsToDisplay){
+    IEnumerator Test(List<AbstractCard> cardsToDisplay, int numToSelect, bool mustSelectExact){
         cardSelectionOverlay.SetActive(true);
-        cardSelectionOverlay.GetComponent<OverlayChooseCards>().Render(cardsToDisplay);
-        Debug.Log("TEST");
-        yield return null;
+        cardSelectionOverlay.GetComponent<OverlayChooseCards>().Render(cardsToDisplay, numToSelect, mustSelectExact);
+        yield return new WaitForSeconds(3);
+
+        Debug.Log("PLEASE DON'T RUN UNTIL TEST IS DONE");
     }
 
     // public void UpdateUI(){

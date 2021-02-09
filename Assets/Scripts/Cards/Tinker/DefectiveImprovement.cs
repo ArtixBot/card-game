@@ -26,7 +26,7 @@ public class DefectiveImprovement : AbstractCard {
 
     public override void Play(AbstractCharacter source, AbstractCharacter target){
         base.Play(source, target);
-        List<AbstractCard> improve = CombatManager.Instance.SelectCardsFromOverlay(source.GetHand());
+        List<AbstractCard> improve = CombatManager.Instance.SelectCardsFromList(source.GetHand(), 1, true);
         improve[0].COST += increaseCost;
     }
 

@@ -1009,7 +1009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c55ff3a11320864eaf1f4524ecd6e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testCardSelectionOverlay: {fileID: 0}
   display: {fileID: 1941307154}
 --- !u!20 &519420031
 Camera:
@@ -1984,8 +1983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429ee765280dd4f4597c68a98a3b13e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mustBeExact: 0
-  maxSelected: 1
 --- !u!1 &1461813135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,5 +2612,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e99159b928c0445b3b345be66188a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDisplays: []
-  renderFighters: {fileID: 0}
+  cardSelectionOverlay: {fileID: 0}

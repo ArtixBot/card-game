@@ -69,7 +69,7 @@ public class Deck
     }
 
     // Returns the entire deck.
-    public List<AbstractCard> GetDeckList(){
+    public List<AbstractCard> ToList(){
         return this.deck;
     }
 

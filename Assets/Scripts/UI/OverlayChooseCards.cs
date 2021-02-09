@@ -16,11 +16,11 @@ public class OverlayChooseCards : MonoBehaviour
         gridLayout = transform.Find("CardListing/Viewport/Content").gameObject.GetComponent<PopulateGridLayout>();
     }
 
-    public void Render(List<AbstractCard> cardsToDisplay, bool mustBeExact = false, int maxSelected = 1){
+    public void Render(List<AbstractCard> cardsToDisplay, int numToSelect, bool mustSelectExact){
         // If false, user can choose up to maxSelected cards. If true, user must choose exactly maxSelected cards.
-        string exact = (mustBeExact) ? "Choose " : "Choose up to ";
-        string plural = (maxSelected == 1) ? " card" : " cards";
-        transform.Find("ChooseUpToX").gameObject.GetComponent<TextMeshProUGUI>().text = exact + maxSelected + plural;
+        string exact = (mustSelectExact) ? "Choose " : "Choose up to ";
+        string plural = (numToSelect == 1) ? " card" : " cards";
+        transform.Find("ChooseUpToX").gameObject.GetComponent<TextMeshProUGUI>().text = exact + numToSelect + plural;
         gridLayout.Render(cardsToDisplay);
     }
 
