@@ -2,3 +2,4 @@
 - Fix UI positioning for combat participants
 - Add battledeck and deep-copy cards from the battledeck to the combat deck to preserve player deck between combat
 - Improve card text parameterization
+- NEGOTIATION TIME LADS
